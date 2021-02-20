@@ -1,0 +1,38 @@
+.text{
+    color:white;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.712);
+}
+
+#profilePic {
+    border: 5px solid black;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#intro {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-size: x-large;
+}
+
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+.bullets {
+    background-color: lightseagreen;
+    
+}

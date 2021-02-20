@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color Guessing Game</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <h1>Color Guessing Game</h1>
+    <button type="button" onclick="colorGuessingGame()">Start Game</button>
+    <script>
+        //Ahmad Alatab
+        const COLORS_ARRAY = ['blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow'];
+        function colorGuessingGame(){
+            let guess = '';
+            let correct = false;
+            let numTries = 0;
+            //check length of the array
+            const colorArrayLength = COLORS_ARRAY.length;
+            //random number between 0 and length COLORS_ARRAY
+            const targetIndex = Math.floor(Math.random() * colorArrayLength);
+            const target = COLORS_ARRAY[targetIndex];
+            //debug
+            console.log(target);
+            do {
+                //fetch the guess from the user
+                let guess = prompt("I am thinking of one of these colors: \n\n" + COLORS_ARRAY.sort().join(", ") + " \n\nWhat color am I thinking of? \n");
+                guess = guess.toLowerCase();
+                //debug
+                console.log(guess);
+                if (guess === null) {
+                    alert("You have exited the game");
+                    return;
+                }
+                correct = checkGuess(guess, target);
+                numTries ++ ;
+            } while (!correct);  
+                alert("Congratulations, you have won the game, it took you " + numTries + " tries to guess the correct value");
+                changeBackgroundColor(target);
+        }
+        
+        function changeBackgroundColor(guess){
+            document.body.style.background = guess;
+        }
+        function checkGuess(guess, target) {
+            console.log(guess);
+            console.log(target);
+            correct = false;
+            //debug
+            console.log(COLORS_ARRAY.includes(guess));
+            if (!COLORS_ARRAY.includes(guess)){
+                alert("The color you chose is not in the list, please choose again");
+            } else if (guess > target) {
+                alert("Your guess is alphabatically higher than the correct answer");
+            } else if (guess < target){
+                alert("Your guess is alphabatically lower than the correct answer")
+            } else {
+                correct = true;
+            }
+            return correct;
+        }
+    </script>
+</body>
+</html>
